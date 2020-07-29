@@ -1,12 +1,9 @@
 pipeline {
-
 environment {
-registry = "web/demo"
+registry = "reach2johnny/demo"
 registryCredential = 'dockerhub'
 dockerImage = ''}
-
 agent any
-
 stages {
 stage('Cloning Git') {
  steps {
@@ -20,14 +17,3 @@ stage('Building image') {
  }
  }
  }
-    
-    
-        stage('Scan') {
-            steps {        
-                sh 'apk add bash curl'
-                sh 'curl -s https://ci-tools.anchore.io/inline_scan-v0.6.0 | bash -s -- -d Dockerfile -b .anchore_policy.json ${registry}:$BUILD_NUMBER'
-            }
-        }
-       
-    }
-}
