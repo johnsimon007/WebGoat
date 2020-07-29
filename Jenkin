@@ -5,13 +5,14 @@ pipeline{
         }
     }
     environment {
-        IMAGE_NAME = 'reach2johnny/demo'
+        IMAGE_NAME = 'web/demo'
         IMAGE_TAG = '$(latest)'
     }
     stages {
         stage('Build Image') {
             steps {
-                sh 'dockerfile build -t ${IMAGE_NAME}:ci .'
+                
+                sh 'docker build -t ${IMAGE_NAME}:ci -f .Dockerfile .'
             }
         }
         stage('Scan') {
