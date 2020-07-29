@@ -4,10 +4,7 @@ pipeline{
             image 'docker:stable'
         }
     }
-    environment {
-        IMAGE_NAME = 'web/demo'
-        IMAGE_TAG = '$(latest)'
-    }
+    
     stages {
         stage('Build Image') {
             steps {
