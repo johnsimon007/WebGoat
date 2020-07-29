@@ -5,11 +5,7 @@ registryCredential = 'dockerhub'
 dockerImage = ''}
 agent any
 stages {
-stage('Cloning Git') {
- steps {
- git 'https://github.com/johnsimon007/WebGoat.git'
- }
- }
+
 stage('Building image') {
  steps{
  script {
