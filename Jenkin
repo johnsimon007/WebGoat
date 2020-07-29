@@ -5,8 +5,8 @@ pipeline{
         }
     }
     environment {
-        IMAGE_NAME = 'webgoat/anchore-ci-demo'
-        IMAGE_TAG = 'jenkins'
+        IMAGE_NAME = 'reach2johnny/demo'
+        IMAGE_TAG = '$(latest)'
     }
     stages {
         stage('Build Image') {
