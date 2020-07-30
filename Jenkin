@@ -18,8 +18,7 @@ pipeline{
             steps {      
            
             
-               
-                anchore name: 'reach2johnny/btodhunter'
+               sh 'anchore name: 'reach2johnny/btodhunter''
                
                 
             }
