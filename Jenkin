@@ -15,11 +15,11 @@ pipeline{
         }
        stage('Push Image') {
             steps {
-                sh 'withDockerRegistry([credentialsId: "dockerhub", url: ""]'
+                sh 'withDockerRegistry([credentialsId: "dockerhub", url: ""]'{
                     sh 'docker tag ${IMAGE_NAME}:ci ${IMAGE_NAME}:${IMAGE_TAG}'
                     sh 'docker push ${IMAGE_NAME}:${IMAGE_TAG}'
                 }
-            }
+            }}
         
         stage('Scan') {
             steps {        
