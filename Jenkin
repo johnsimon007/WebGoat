@@ -18,7 +18,7 @@ pipeline{
             steps {           
           sh '''
           pip install anchorecli
-source ~/.profile
+
 ANCHORE_CLI_URL=http://localhost:8228/v1
 ANCHORE_CLI_USER=admin
 ANCHORE_CLI_PASS=foobar
