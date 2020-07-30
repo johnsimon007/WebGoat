@@ -12,7 +12,7 @@ RUN apt-get -y install apt-utils nginx
 
 USER webgoat
 
-wget -O /etc/nginx/nginx.conf "https://github.com/johnsimon007/WebGoat/blob/develop/docker/nginx.conf"
+wget -o /etc/nginx/nginx.conf "https://github.com/johnsimon007/WebGoat/blob/develop/docker/nginx.conf"
 COPY index.html /usr/share/nginx/html/
 COPY webgoat-server-${webgoat_version}.jar /home/webgoat/webgoat.jar
 COPY webwolf-${webgoat_version}.jar /home/webgoat/webwolf.jar
