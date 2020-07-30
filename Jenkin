@@ -19,7 +19,8 @@ pipeline{
            
             
           
-               anchore name: 'btodhunter:ci'
+               sh 'echo "docker.io/reach2johnny/btodhunter 'pwd'/Dockerfile" > anchore_images"
+ anchore name: 'anchore_images'}
        
                
                 
