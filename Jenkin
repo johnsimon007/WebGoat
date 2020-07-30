@@ -4,7 +4,7 @@ pipeline{
     environment {
         IMAGE_NAME = 'reach2johnny/btodhunter'
         IMAGE_TAG = 'jenkins'
-        registry = "reach2johnny/webgoat"
+        registry = "reach2johnny/btodhunter"
         registryCredential = 'dockerhub'
     }
     stages {
@@ -13,19 +13,25 @@ pipeline{
                 sh 'docker build -f Dockerfile -t ${IMAGE_NAME}:ci https://raw.githubusercontent.com/johnsimon007/WebGoat/develop/docker/Dockerfile'
             }
         }
-       stage('Push Image') {
-            steps {
-                sh 'withDockerRegistry([credentialsId: "dockerhub", url: ""]'{
-                    sh 'docker tag ${IMAGE_NAME}:ci ${IMAGE_NAME}:${IMAGE_TAG}'
-                    sh 'docker push ${IMAGE_NAME}:${IMAGE_TAG}'
-                }
-            }}
         
-        stage('Scan') {
-            steps {        
-                sh 'curl -s https://ci-tools.anchore.io/inline_scan-v0.6.0 | bash -s -- -r ${IMAGE_NAME}:ci'
+      stage('Scan') {
+            steps {      
+            sh '
+            node {
+                def imageLine = 'reach2johnny/btodhunter:ci'
+                writeFile file: 'anchore_images', text: imageLine
+                anchore name: 'anchore_images'
+                }
+                
             }
         }
+        
+     stage('Push Image') {
+            steps {
+                sh 'docker push reach2johnny/btodhunter'
+            }
+            }
+            
         
     }
 }
