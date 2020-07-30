@@ -13,7 +13,7 @@ RUN apt-get -y install apt-utils nginx
 USER webgoat
 
 
-EXPOSE 8081
+EXPOSE 8080
 EXPOSE 9090
 
 ENV WEBGOAT_PORT 8080
