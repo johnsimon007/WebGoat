@@ -8,7 +8,7 @@ pipeline{
     stages {
         stage('Build Image') {
             steps {
-                sh 'docker build -f ./docker/dockerfile -t ${IMAGE_NAME}:ci https://github.com/johnsimon007/WebGoat/blob/develop/docker/'
+                sh 'docker build -f /docker/dockerfile -t ${IMAGE_NAME}:ci https://github.com/johnsimon007/WebGoat/blob/develop/docker/'
             }
         }
         stage('Scan') {
