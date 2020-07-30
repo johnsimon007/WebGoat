@@ -36,7 +36,7 @@ anchore 'openjdk:8-jre-alpine'
             }
             
         
-    }
+    
 }
 }
 node{
