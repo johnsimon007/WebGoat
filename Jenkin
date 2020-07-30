@@ -5,7 +5,7 @@ pipeline{
         IMAGE_NAME = 'btodhunter/anchore-ci-demo'
         IMAGE_TAG = 'jenkins'
         registry = "reach2johnny/webgoat"
-        registryCredential = 'reach2johnny'
+        registryCredential = 'dockerhub'
     }
     stages {
         stage('Build Image') {
@@ -15,7 +15,7 @@ pipeline{
         }
        stage('Push Image') {
             steps {
-                withDockerRegistry([credentialsId: "dockerhub-creds", url: ""]){
+                withDockerRegistry([credentialsId: "dockerhub", url: "https://hub.docker.com/"]){
                     sh 'docker tag ${IMAGE_NAME}:ci ${IMAGE_NAME}:${IMAGE_TAG}'
                     sh 'docker push ${IMAGE_NAME}:${IMAGE_TAG}'
                 }
