@@ -15,11 +15,11 @@ pipeline{
         }
         
       stage('Scan') {
-            steps {      
-           
-            
+            steps {           
           
-               sh 'echo "docker.io/reach2johnny/btodhunter" > anchore_images'
+               sh '''
+               echo "docker.io/reach2johnny/btodhunter" > anchore_images
+               '''
  anchore name: 'anchore_images'}
        
                
