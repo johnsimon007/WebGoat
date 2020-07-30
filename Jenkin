@@ -17,11 +17,10 @@ pipeline{
       stage('Scan') {
             steps {      
            
-            node {
-                def imageLine = 'reach2johnny/btodhunter:ci'
-                writeFile file: 'anchore_images', text: imageLine
+            
+               
                 anchore name: 'anchore_images'
-                }
+               
                 
             }
         }
