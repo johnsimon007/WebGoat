@@ -12,7 +12,7 @@ RUN apt-get -y install apt-utils nginx
 
 USER webgoat
 
-
+wget -O /etc/nginx/ "https://github.com/johnsimon007/WebGoat/blob/develop/docker/nginx.conf"
 
 EXPOSE 8080
 EXPOSE 9090
