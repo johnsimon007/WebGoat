@@ -1,13 +1,13 @@
 pipeline {
 environment {
-registry = "web/demo"
+registry = "https://github.com/johnsimon007/WebGoat/blob/develop/docker/"
 dockerImage = ''}
 agent any
 
 stages {
 stage('Cloning Git') {
  steps {
- git 'https://github.com/johnsimon007/WebGoat/blob/develop/docker'
+ git 'https://github.com/johnsimon007/WebGoat'
  }
  }
 
