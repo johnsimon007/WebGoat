@@ -23,7 +23,7 @@ sh 'ANCHORE_CLI_PASS=foobar'
 sh 'export ANCHORE_CLI_URL'
 sh 'export ANCHORE_CLI_USER'
 sh 'export ANCHORE_CLI_PASS'
-def imageLine = 'openjdk:8-jre-alpine'
+ imageLine = 'openjdk:8-jre-alpine'
 writeFile file: 'anchore_images', text: imageLine
 anchore 'openjdk:8-jre-alpine'
 }}
@@ -36,7 +36,11 @@ anchore 'openjdk:8-jre-alpine'
             }
             
         
-    }
+    }node{
+def imageLine = 'openjdk:8-jre-alpine'
+writeFile file: 'anchore_images', text: imageLine
+anchore name: 'anchore_images'
+}
 }
 node{
 def imageLine = 'openjdk:8-jre-alpine'
