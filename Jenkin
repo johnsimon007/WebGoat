@@ -2,7 +2,7 @@ pipeline{
     agent any
     
     environment {
-        IMAGE_NAME = 'btodhunter/anchore-ci-demo'
+        IMAGE_NAME = 'reach2johnnybtodhunter'
         IMAGE_TAG = 'jenkins'
         registry = "reach2johnny/webgoat"
         registryCredential = 'dockerhub'
