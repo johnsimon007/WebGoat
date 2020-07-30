@@ -1,6 +1,6 @@
 pipeline {
 environment {
-registry = "https://github.com/johnsimon007/WebGoat/blob/develop/docker/"
+registry = "develop/docker"
 dockerImage = ''}
 agent any
 
