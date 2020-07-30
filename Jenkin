@@ -25,7 +25,7 @@ sh 'export ANCHORE_CLI_USER'
 sh 'export ANCHORE_CLI_PASS'
 
              sh '''
-               echo "/reach2johnny/btodhunter" > anchore_images
+               echo "reach2johnny/btodhunter" > anchore_images
                '''
  anchore name: 'anchore_images'}
        
