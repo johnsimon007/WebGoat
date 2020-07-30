@@ -13,14 +13,14 @@ pipeline{
                 sh 'docker build -f Dockerfile -t ${IMAGE_NAME}:ci https://raw.githubusercontent.com/johnsimon007/WebGoat/develop/docker/Dockerfile'
             }
         }
-        stage('Push Image') {
-            steps {
-                withDockerRegistry([credentialsId: "dockerhub-creds", url: ""]){
-                    sh 'docker tag ${IMAGE_NAME}:ci ${IMAGE_NAME}:${IMAGE_TAG}'
-                    sh 'docker push ${IMAGE_NAME}:${IMAGE_TAG}'
-                }
-            }
+        stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
         }
+      }
         stage('Scan') {
             steps {        
                 sh 'curl -s https://ci-tools.anchore.io/inline_scan-v0.6.0 | bash -s -- -r ${IMAGE_NAME}:ci'
