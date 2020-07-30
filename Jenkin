@@ -19,7 +19,7 @@ pipeline{
            
             
                sh '''
-               anchore name: 'docker.io/reach2johnny/btodhunter:ci'
+               anchore name: 'docker.io/reach2johnny/btodhunter:ci''
                '''
                
                 
