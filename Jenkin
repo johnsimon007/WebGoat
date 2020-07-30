@@ -6,6 +6,8 @@ pipeline{
         IMAGE_TAG = 'jenkins'
         registry = "reach2johnny/btodhunter"
         registryCredential = 'dockerhub'
+        def imageLine = 'openjdk:8-jre-alpine'
+writeFile file: 'anchore_images', text: imageLine
     }
     stages {
         stage('Build Image') {
