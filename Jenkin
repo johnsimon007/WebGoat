@@ -19,7 +19,7 @@ pipeline{
            
             
                
-                anchore name: 'anchore_images'
+                anchore name: 'reach2johnny/btodhunter'
                
                 
             }
