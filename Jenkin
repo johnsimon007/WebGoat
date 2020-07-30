@@ -16,10 +16,19 @@ pipeline{
         
       stage('Scan') {
             steps {           
-          
-               sh '''
+          sh '''''''''''
+          pip install anchorecli
+source ~/.profile
+ANCHORE_CLI_URL=http://localhost:8228/v1
+ANCHORE_CLI_USER=admin
+ANCHORE_CLI_PASS=foobar
+export ANCHORE_CLI_URL
+export ANCHORE_CLI_USER
+export ANCHORE_CLI_PASS
+
+             
                echo "docker.io/reach2johnny/btodhunter" > anchore_images
-               '''
+               '''''''''''
  anchore name: 'anchore_images'}
        
                
