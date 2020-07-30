@@ -19,7 +19,7 @@ pipeline{
            
             
           
-               anchore name: 'docker.io/reach2johnny/btodhunter:ci'
+               anchore name: 'reach2johnny/btodhunter:ci'
        
                
                 
