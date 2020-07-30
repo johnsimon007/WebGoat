@@ -1,19 +1,21 @@
 pipeline {
 environment {
 registry = "web/demo"
-
 dockerImage = ''}
 agent any
+
 stages {
 stage('Cloning Git') {
  steps {
  git 'https://github.com/johnsimon007/WebGoat/blob/develop/docker'
  }
  }
+
 stage('Building image') {
  steps{
  script {
  dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+ }}}
 stage('Container Security Scan') {
  steps {
 
