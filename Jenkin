@@ -1,6 +1,6 @@
 pipeline {
 environment {
-registry = "reach2johnny/webgoatr"
+registry = "reach2johnny/webgoat"
 dockerImage = ''}
 agent any
 
