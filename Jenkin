@@ -25,7 +25,7 @@ sh 'export ANCHORE_CLI_USER'
 sh 'export ANCHORE_CLI_PASS'
 }}
 stage('Scanner') {
-             steps {
+             node {
 def imageLine = 'openjdk:8-jre-alpine'
 writeFile file: 'anchore_images', text: imageLine
 anchore name: 'anchore_images'
