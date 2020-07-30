@@ -15,7 +15,7 @@ pipeline{
         }
        stage('Push Image') {
             steps {
-                sh 'docker.withRegistry("https://hub.docker.com/", registryCredential)'
+                sh 'withDockerRegistry([credentialsId: "dockerhub", url: ""]'
                     sh 'docker tag ${IMAGE_NAME}:ci ${IMAGE_NAME}:${IMAGE_TAG}'
                     sh 'docker push ${IMAGE_NAME}:${IMAGE_TAG}'
                 }
