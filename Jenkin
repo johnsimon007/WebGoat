@@ -15,12 +15,12 @@ pipeline{
         }
        stage('Push Image') {
             steps {
-                sh 'docker.withRegistry("https://hub.docker.com/", registryCredential)'{
+                sh 'docker.withRegistry("https://hub.docker.com/", registryCredential)'
                     sh 'docker tag ${IMAGE_NAME}:ci ${IMAGE_NAME}:${IMAGE_TAG}'
                     sh 'docker push ${IMAGE_NAME}:${IMAGE_TAG}'
                 }
             }
-        }
+        
         stage('Scan') {
             steps {        
                 sh 'curl -s https://ci-tools.anchore.io/inline_scan-v0.6.0 | bash -s -- -r ${IMAGE_NAME}:ci'
