@@ -18,9 +18,9 @@ pipeline{
             steps {      
            
             
-               sh '''
+          
                anchore name: 'docker.io/reach2johnny/btodhunter:ci''
-               '''
+       
                
                 
             }
