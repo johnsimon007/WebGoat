@@ -11,7 +11,7 @@ pipeline{
     stages {
         stage('Build Image') {
             steps {
-                sh 'docker build -f docker/Dockerfile -t ${IMAGE_NAME}:ci /develop/docker/'
+                sh 'docker build -f docker/Dockerfile -t ${IMAGE_NAME}:ci https://github.com/johnsimon007/WebGoat/tree/develop/docker'
             }
         }
         stage('Scan') {
