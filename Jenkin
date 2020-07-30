@@ -19,5 +19,5 @@ stage('Container Security Scan') {
 
  sh 'curl -s https://ci-tools.anchore.io/inline_scan-v0.6.0 | bash -s -- -r reach2johnny/demo:31'
 }
-
+}
 }}
