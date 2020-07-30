@@ -1,5 +1,11 @@
 pipeline{
     agent any
+    node{
+def imageLine = 'openjdk:8-jre-alpine'
+writeFile file: 'anchore_images', text: imageLine
+anchore name: 'anchore_images'
+}
+
     
     environment {
         IMAGE_NAME = 'reach2johnny/btodhunter'
@@ -7,7 +13,7 @@ pipeline{
         registry = "reach2johnny/btodhunter"
         registryCredential = 'dockerhub'
         def imageLine = 'openjdk:8-jre-alpine'
-writeFile file: 'anchore_images', text: imageLine
+        writeFile file: 'anchore_images', text: imageLine
     }
     stages {
         stage('Build Image') {
@@ -39,9 +45,4 @@ anchore name: 'anchore_images'
         
     
 }
-}
-node{
-def imageLine = 'openjdk:8-jre-alpine'
-writeFile file: 'anchore_images', text: imageLine
-anchore name: 'anchore_images'
 }
