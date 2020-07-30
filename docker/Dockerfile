@@ -11,8 +11,7 @@ RUN chmod -R g=u /home/webgoat
 RUN apt-get -y install apt-utils nginx
 
 USER webgoat
-RUN apt-get install -y wget
-RUN wget -O /etc/nginx/ "https://github.com/johnsimon007/WebGoat/blob/develop/docker/nginx.conf"
+
 
 EXPOSE 8080
 EXPOSE 9090
